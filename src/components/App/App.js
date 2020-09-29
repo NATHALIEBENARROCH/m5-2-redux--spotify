@@ -28,23 +28,23 @@ const App = () => {
       });
   }, []);
   return (
-    <GlobalStyles>
-      <BrowserRouter>
-        <div>
-          <Switch>
-            <Route exact path="/artists/:id">
-              <ArtistRoute />
-            </Route>
-            <Route exact path="/">
-              <Redirect to={`/artists/${DEFAULT_ARTIST_ID}`} />
-            </Route>
-          </Switch>
-        </div>
-      </BrowserRouter>
-    </GlobalStyles>
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route exact path="/artists/:id">
+            <ArtistRoute />
+          </Route>
+          <Route exact path="/">
+            <Redirect to={`/artists/${DEFAULT_ARTIST_ID}`} />
+          </Route>
+        </Switch>
+      </div>
+      <GlobalStyles />
+    </BrowserRouter>
   );
 };
 
+//curson on selection then  option up arrow
 export default App;
 
 const ByArtists = styled.div``;
