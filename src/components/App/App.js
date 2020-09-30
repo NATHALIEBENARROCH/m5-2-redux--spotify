@@ -16,11 +16,14 @@ const DEFAULT_ARTIST_ID = "3aEHKmYKru5l6OkG9IOIPb";
 const App = () => {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    //
+  console.log("in use effect")
     dispatch(requestAccessToken());
-    fetch("/spotify_access_token")
+    fetch("http://localhost:5678/spotify_access_token")
+    // without this is fetches at local host 3000!
+    // see console
       .then((response) => response.json())
       .then((json) => {
+        console.log(json.access_token)
         dispatch(receiveAccessToken(json.access_token));
       })
       .catch((err) => {
@@ -47,6 +50,4 @@ const App = () => {
 //curson on selection then  option up arrow
 export default App;
 
-const ByArtists = styled.div``;
 
-const DefaultArtists = styled.div``;

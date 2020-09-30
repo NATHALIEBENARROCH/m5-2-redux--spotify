@@ -13,8 +13,9 @@ const ArtistRoute = () => {
   const artistId = "3aEHKmYKru5l6OkG9IOIPb";
 
   React.useEffect(() => {
-    
+    console.log(accessToken)
     if(accessToken) {
+      console.log("useEffect for access token")
       dispatch(requestArtistDetails())
       fetchArtistProfile(accessToken, params.id).then((data) => {
         console.log(data)
@@ -33,6 +34,7 @@ const ArtistRoute = () => {
     <>
       <div>{data.name}</div>
       <img src={data.images[0].url}></img>
+      <div>{data.followers.total}</div>
     </>
   );
 };
